@@ -1,0 +1,19 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+import { withKnobs, text, boolean, number } from '@storybook/addon-knobs'
+
+import H1 from '../H1'
+
+<Meta title="Text" component={H1} />
+
+# Heading 1
+
+With `MDX` we can define a story for `H1` right in the middle of our
+markdown documentation.
+
+<Preview>
+  <Story name="Heading 1">
+    <H1 backgroundColor={text('Color', `#000000`)}>
+      {text('Heading text', 'This is a heading')}
+    </H1>
+  </Story>
+</Preview>
