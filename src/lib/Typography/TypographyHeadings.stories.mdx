@@ -1,0 +1,170 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+import Typography from '../Typography'
+import { defaultTheme } from '../../defaultTheme.ts'
+import { typographyStyles } from './styles.ts'
+
+<Meta
+  title="Typography Heading"
+  component={Typography}
+  argTypes={{
+    color: {
+      name: 'color',
+      control: 'color',
+      table: {
+        defaultValue: {
+          summary: defaultTheme.colors.text,
+        },
+        type: {
+          summary: 'string',
+          detail:
+            'This can also be an array value for responsive colors, and also pull in from the theme object.',
+        },
+      },
+    },
+    backgroundColor: {
+      name: 'backgroundColor',
+      control: 'color',
+      table: {
+        defaultValue: { summary: '#fff' },
+        type: {
+          summary: 'string',
+          detail:
+            'This can also be an array value for responsive colors, and also pull in from the theme object.',
+        },
+      },
+    },
+    fontWeight: {
+      name: 'fontWeight',
+      defaultValue: '700',
+      control: 'text',
+      table: {
+        type: {
+          summary: 'string',
+        },
+        defaultValue: { summary: '700' },
+      },
+    },
+    letterSpacing: {
+      name: 'letterSpacing',
+      defaultValue: '1px',
+      control: 'text',
+      table: {
+        type: {
+          summary: 'string',
+        },
+        defaultValue: { summary: '1px' },
+      },
+    },
+    padding: {
+      control: { type: 'select', options: { ...defaultTheme.space } },
+    },
+    margin: {
+      control: { type: 'select', options: { ...defaultTheme.space } },
+    },
+    children: {
+      defaultValue: 'Hi there',
+      control: {
+        type: 'text',
+      },
+      table: {
+        type: {
+          summary: 'string',
+        },
+      },
+    },
+  }}
+/>
+
+# Typography Heading
+
+To use this component, simply pull it like like a so.
+
+`import Typography from 'mcclane-components'`
+`const { H1, H2, H3, H4, H5, LeadSmall, LeadLarge, Paragraph, ParagraphSmall } from Typography`
+
+This system uses two libraries to build itself. [styled-components](https://styled-components.com/) and [styled-system](https://styled-system.com/)
+
+This componend _extends_ the `<GenericComponent />` which incorporates all of the props that are exposed via the `styled-system` library. The props tables below are as such not exhaustive.
+
+Each of the props that can be used from `styled-system` are from a specific module. The reference for each module can be found here:
+
+- [space](https://styled-system.com/table#space)
+- [typography](https://styled-system.com/table#typography)
+- [color](https://styled-system.com/table#color)
+- [layout](https://styled-system.com/table#layout)
+- [flexbox](https://styled-system.com/table#flexbox)
+- [grid](https://styled-system.com/table#grid)
+- [background](https://styled-system.com/table#background)
+- [border](https://styled-system.com/table#border)
+- [position](https://styled-system.com/table#position)
+- [shadow](https://styled-system.com/table#shadow)
+
+Using these and the [theme specification](https://styled-system.com/theme-specification) as a guide, the typography components can be created using one component and the theme provider.
+
+## H1
+
+<Preview>
+  <Story name="H1">
+    {(args) => <Typography.H1>{args.children}</Typography.H1>}
+  </Story>
+</Preview>
+
+### Props
+
+<Props story="H1" />
+
+## H2
+
+<Preview>
+  <Story name="H2">
+    {(args) => {
+      return <Typography.H2 {...args}>{args.children}</Typography.H2>
+    }}
+  </Story>
+</Preview>
+
+### Props
+
+<Props story="H2" />
+
+## H3
+
+<Preview>
+  <Story name="H3">
+    {(args) => {
+      return <Typography.H3 {...args}>{args.children}</Typography.H3>
+    }}
+  </Story>
+</Preview>
+
+### Props
+
+<Props story="H3" />
+
+## H4
+
+<Preview>
+  <Story name="H4">
+    {(args) => {
+      return <Typography.H4 {...args}>{args.children}</Typography.H4>
+    }}
+  </Story>
+</Preview>
+
+### Props
+
+<Props story="H4" />
+
+## H5
+
+<Preview>
+  <Story name="H5">
+    {(args) => {
+      return <Typography.H5 {...args}>{args.children}</Typography.H5>
+    }}
+  </Story>
+</Preview>
+
+### Props
+
+<Props story="H5" />
