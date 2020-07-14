@@ -46,7 +46,13 @@ export const space: Space = {
   XXL: 64,
 }
 
-export const breakpoints: string[] = ['319px', '424px', '767px', '1023px']
+export const breakpoints: any = ['319px', '424px', '767px', '1023px', '1200']
+
+breakpoints.sm = breakpoints[0]
+breakpoints.md = breakpoints[1]
+breakpoints.lg = breakpoints[2]
+breakpoints.xl = breakpoints[3]
+breakpoints.xxl = breakpoints[4]
 
 export const fontSizes: number[] = [
   12,

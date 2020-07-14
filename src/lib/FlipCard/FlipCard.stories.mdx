@@ -1,0 +1,77 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+import FlipCard from '../FlipCard'
+
+<Meta
+  title="Flip Card"
+  argTypes={{
+    image: {
+      name: 'image',
+      control: 'text',
+      defaultValue: 'https://picsum.photos/id/1083/800/800',
+    },
+    headingText: {
+      name: 'headingText',
+      control: 'text',
+      defaultValue: 'Perfect for two',
+    },
+    listItems: {
+      name: 'listItems',
+      control: 'array',
+      defaultValue: [
+        'Romantic time',
+        '2 tours',
+        '4 days',
+        'Luxury accomodation',
+        'White beaches',
+      ],
+    },
+    value: {
+      name: 'value',
+      control: 'text',
+      defaultValue: '$600',
+    },
+    startColor: {
+      name: 'startColor',
+      control: 'color',
+      defaultValue: '#7ed56f',
+    },
+    endColor: {
+      name: 'endColor',
+      control: 'color',
+      defaultValue: '#28b485',
+    },
+  }}
+/>
+
+# Flip Card
+
+This component is designed to be used as an advertisement for various highlighted products or services.
+The idea with this component is that it has a hover state only on very large devices, as tablets are bid today.
+
+<Preview>
+  <Story name="Flip Card">
+    {(args) => (
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 400px))',
+          gridGap: '30px',
+        }}
+      >
+        <div>
+          <FlipCard {...args}>{args.children}</FlipCard>
+        </div>
+        <div>
+          <FlipCard {...args}>{args.children}</FlipCard>
+        </div>
+        <div>
+          <FlipCard {...args}>{args.children}</FlipCard>
+        </div>
+      </div>
+    )}
+  </Story>
+</Preview>
+
+### Props
+
+<Props story="Flip Card" />

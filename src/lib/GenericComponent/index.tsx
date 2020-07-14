@@ -30,7 +30,7 @@ export type StyledSystemProps = SpaceProps &
   BackgroundProps &
   BorderProps &
   PositionProps &
-  ShadowProps & { // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ShadowProps & {
     color?: string
     as?: keyof JSX.IntrinsicElements | React.ComponentType<any>
   }
@@ -44,6 +44,6 @@ export default styled.div`
   ${grid}
   ${background}
   ${border}
-  ${position}
+  ${position} 
   ${shadow}
 `

@@ -4,6 +4,8 @@ import Header from '../Header'
 import Typography from '../Typography'
 import { defaultTheme } from '../../defaultTheme.ts'
 
+import hero from '../../images/hero.jpg'
+
 <Meta
   title="Header"
   component={Header}
@@ -11,12 +13,17 @@ import { defaultTheme } from '../../defaultTheme.ts'
     clipPath: {
       name: 'clipPath',
       control: 'text',
-      defaultValue: 'polygon(0 0, 100% 0, 100% 75vh, 0 100%)',
+      defaultValue: 'polygon(0 10%, 100% 0, 100% 90%, 0 100%)',
     },
     backgroundImage: {
       name: 'backgroundImage',
       control: 'text',
-      defaultValue: 'https://picsum.photos/id/870/1000/800',
+      table: {
+        type: {
+          summary: 'string',
+        },
+      },
+      defaultValue: `linear-gradient(to right bottom, ${defaultTheme.colors.tertiaryLight}cc, ${defaultTheme.colors.secondaryLight}cc),url(${hero})`,
     },
     height: {
       name: 'height',
@@ -34,22 +41,35 @@ import { defaultTheme } from '../../defaultTheme.ts'
         },
       },
     },
+    as: {
+      control: { disabled: true },
+      table: { disabled: true },
+    },
   }}
 />
 
 ## Header
 
+This is a super basic `Header` component that can be used and extended using `styled-components`.
+Its highly recomended to extend the `Header` component by using the `styled-component` syntax:
+
+```
+const YourHeader = styled(Header)<HeaderProps>`
+  property: ${props => props.dynamicProp};
+  property2: your css here;
+`
+```
+
+The `props.children` can be anything, but is essentially designed to be used with text.
+
 <Preview>
   <Story name="Header">
-    {(args) => {
-      console.log(args)
-      return (
-        <Header {...args}>
-          <Typography.H1 color="white">{args.children}</Typography.H1>
-          <Typography.H5 color="white">{args.children}</Typography.H5>
-        </Header>
-      )
-    }}
+    {(args) => (
+      <Header {...args}>
+        <Typography.H1 color="white">{args.children}</Typography.H1>
+        <Typography.H5 color="white">{args.children}</Typography.H5>
+      </Header>
+    )}
   </Story>
 </Preview>
 

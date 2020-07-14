@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import GenericComponent, { StyledSystemProps } from '../GenericComponent'
 
 interface HeaderProps extends StyledSystemProps {
-  clipPath?: string
+  clipPath: string
 }
 
 const HeaderWrapper = styled(GenericComponent)<HeaderProps>`
@@ -11,12 +11,7 @@ const HeaderWrapper = styled(GenericComponent)<HeaderProps>`
   background-size: cover;
   background-position: top;
   position: relative;
-  background-image: linear-gradient(
-      to right bottom,
-      ${(props) => props.theme.colors.primary + 'cc'},
-      ${(props) => props.theme.colors.secondaryDark + 'cc'}
-    ),
-    url('https://picsum.photos/id/870/1000/800');
+  background-image: ${(props) => props.backgroundImage};
 `
 
 const HeaderText = styled.div`
@@ -30,7 +25,7 @@ const HeaderText = styled.div`
 const Header: React.FC<HeaderProps> = (props) => {
   return (
     <HeaderWrapper
-      backgroundImage={`url(${props.backgroundImage})`}
+      backgroundImage={props.backgroundImage}
       clipPath={props.clipPath}
       height={props.height}
     >

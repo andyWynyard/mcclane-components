@@ -1,9 +1,11 @@
 import { colors } from '../../defaultTheme'
 import { StyledSystemProps } from '../GenericComponent'
+import 'typeface-roboto'
+import 'typeface-lato'
 
 const fontFamilies: { heading: string; body: string } = {
-  heading: 'Montserrat, serif',
-  body: 'Raleway, sans-serif',
+  heading: 'Lato, serif',
+  body: 'Roboto, sans-serif',
 }
 
 interface TypographyStyles {
