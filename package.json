@@ -1,6 +1,6 @@
 {
   "name": "@andy-wynyard/mcclane-components",
-  "version": "0.1.15",
+  "version": "0.1.17",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "files": [
@@ -62,8 +62,8 @@
   "peerDependencies": {
     "react": ">=16.13.0",
     "react-dom": ">=16.13.0",
-    "styled-components": ">= 5",
-    "styled-system": ">= 5"
+    "styled-components": ">=5",
+    "styled-system": ">=5"
   },
   "browserslist": {
     "production": [
