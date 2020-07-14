@@ -1,13 +1,6 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var React = require('react');
-var React__default = _interopDefault(React);
-var styled = _interopDefault(require('styled-components'));
-var styledSystem = require('styled-system');
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import { space as space$1, color, typography, layout, flexbox, grid, background, border, position, shadow } from 'styled-system';
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -2311,7 +2304,7 @@ function createReactContext(defaultValue, calculateChangedBits) {
     };
 
     return Provider;
-  }(React.Component);
+  }(Component);
 
   Provider.childContextTypes = (_Provider$childContex = {}, _Provider$childContex[contextProp] = propTypes.object.isRequired, _Provider$childContex);
 
@@ -2374,7 +2367,7 @@ function createReactContext(defaultValue, calculateChangedBits) {
     };
 
     return Consumer;
-  }(React.Component);
+  }(Component);
 
   Consumer.contextTypes = (_Consumer$contextType = {}, _Consumer$contextType[contextProp] = propTypes.object, _Consumer$contextType);
   return {
@@ -2383,7 +2376,7 @@ function createReactContext(defaultValue, calculateChangedBits) {
   };
 }
 
-var index = React__default.createContext || createReactContext;
+var index = React.createContext || createReactContext;
 
 var isarray = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
@@ -2941,21 +2934,21 @@ function (_React$Component) {
   };
 
   _proto.render = function render() {
-    return React__default.createElement(context.Provider, {
+    return React.createElement(context.Provider, {
       value: {
         history: this.props.history,
         location: this.state.location,
         match: Router.computeRootMatch(this.state.location.pathname),
         staticContext: this.props.staticContext
       }
-    }, React__default.createElement(historyContext.Provider, {
+    }, React.createElement(historyContext.Provider, {
       children: this.props.children || null,
       value: this.props.history
     }));
   };
 
   return Router;
-}(React__default.Component);
+}(React.Component);
 
 if (process.env.NODE_ENV !== "production") {
   Router.propTypes = {
@@ -2993,14 +2986,14 @@ function (_React$Component) {
   var _proto = MemoryRouter.prototype;
 
   _proto.render = function render() {
-    return React__default.createElement(Router, {
+    return React.createElement(Router, {
       history: this.history,
       children: this.props.children
     });
   };
 
   return MemoryRouter;
-}(React__default.Component);
+}(React.Component);
 
 if (process.env.NODE_ENV !== "production") {
   MemoryRouter.propTypes = {
@@ -3044,7 +3037,7 @@ function (_React$Component) {
   };
 
   return Lifecycle;
-}(React__default.Component);
+}(React.Component);
 
 /**
  * The public API for prompting the user before navigating away from a screen.
@@ -3054,11 +3047,11 @@ function Prompt(_ref) {
   var message = _ref.message,
       _ref$when = _ref.when,
       when = _ref$when === void 0 ? true : _ref$when;
-  return React__default.createElement(context.Consumer, null, function (context) {
+  return React.createElement(context.Consumer, null, function (context) {
     !context ? process.env.NODE_ENV !== "production" ? invariant(false, "You should not use <Prompt> outside a <Router>") : invariant(false) : void 0;
     if (!when || context.staticContext) return null;
     var method = context.history.block;
-    return React__default.createElement(Lifecycle, {
+    return React.createElement(Lifecycle, {
       onMount: function onMount(self) {
         self.release = method(message);
       },
@@ -3127,7 +3120,7 @@ function Redirect(_ref) {
       to = _ref.to,
       _ref$push = _ref.push,
       push = _ref$push === void 0 ? false : _ref$push;
-  return React__default.createElement(context.Consumer, null, function (context) {
+  return React.createElement(context.Consumer, null, function (context) {
     !context ? process.env.NODE_ENV !== "production" ? invariant(false, "You should not use <Redirect> outside a <Router>") : invariant(false) : void 0;
     var history = context.history,
         staticContext = context.staticContext;
@@ -3142,7 +3135,7 @@ function Redirect(_ref) {
       return null;
     }
 
-    return React__default.createElement(Lifecycle, {
+    return React.createElement(Lifecycle, {
       onMount: function onMount() {
         method(location);
       },
@@ -3249,7 +3242,7 @@ function matchPath(pathname, options) {
 }
 
 function isEmptyChildren(children) {
-  return React__default.Children.count(children) === 0;
+  return React.Children.count(children) === 0;
 }
 
 function evalChildrenDev(children, props, path) {
@@ -3276,7 +3269,7 @@ function (_React$Component) {
   _proto.render = function render() {
     var _this = this;
 
-    return React__default.createElement(context.Consumer, null, function (context$1) {
+    return React.createElement(context.Consumer, null, function (context$1) {
       !context$1 ? process.env.NODE_ENV !== "production" ? invariant(false, "You should not use <Route> outside a <Router>") : invariant(false) : void 0;
       var location = _this.props.location || context$1.location;
       var match = _this.props.computedMatch ? _this.props.computedMatch // <Switch> already computed the match for us
@@ -3297,14 +3290,14 @@ function (_React$Component) {
         children = null;
       }
 
-      return React__default.createElement(context.Provider, {
+      return React.createElement(context.Provider, {
         value: props
-      }, props.match ? children ? typeof children === "function" ? process.env.NODE_ENV !== "production" ? evalChildrenDev(children, props, _this.props.path) : children(props) : children : component ? React__default.createElement(component, props) : render ? render(props) : null : typeof children === "function" ? process.env.NODE_ENV !== "production" ? evalChildrenDev(children, props, _this.props.path) : children(props) : null);
+      }, props.match ? children ? typeof children === "function" ? process.env.NODE_ENV !== "production" ? evalChildrenDev(children, props, _this.props.path) : children(props) : children : component ? React.createElement(component, props) : render ? render(props) : null : typeof children === "function" ? process.env.NODE_ENV !== "production" ? evalChildrenDev(children, props, _this.props.path) : children(props) : null);
     });
   };
 
   return Route;
-}(React__default.Component);
+}(React.Component);
 
 if (process.env.NODE_ENV !== "production") {
   Route.propTypes = {
@@ -3443,14 +3436,14 @@ function (_React$Component) {
       listen: this.handleListen,
       block: this.handleBlock
     };
-    return React__default.createElement(Router, _extends({}, rest, {
+    return React.createElement(Router, _extends({}, rest, {
       history: history,
       staticContext: context
     }));
   };
 
   return StaticRouter;
-}(React__default.Component);
+}(React.Component);
 
 if (process.env.NODE_ENV !== "production") {
   StaticRouter.propTypes = {
@@ -3482,7 +3475,7 @@ function (_React$Component) {
   _proto.render = function render() {
     var _this = this;
 
-    return React__default.createElement(context.Consumer, null, function (context) {
+    return React.createElement(context.Consumer, null, function (context) {
       !context ? process.env.NODE_ENV !== "production" ? invariant(false, "You should not use <Switch> outside a <Router>") : invariant(false) : void 0;
       var location = _this.props.location || context.location;
       var element, match; // We use React.Children.forEach instead of React.Children.toArray().find()
@@ -3490,8 +3483,8 @@ function (_React$Component) {
       // to trigger an unmount/remount for two <Route>s that render the same
       // component at different URLs.
 
-      React__default.Children.forEach(_this.props.children, function (child) {
-        if (match == null && React__default.isValidElement(child)) {
+      React.Children.forEach(_this.props.children, function (child) {
+        if (match == null && React.isValidElement(child)) {
           element = child;
           var path = child.props.path || child.props.from;
           match = path ? matchPath(location.pathname, _extends({}, child.props, {
@@ -3499,7 +3492,7 @@ function (_React$Component) {
           })) : context.match;
         }
       });
-      return match ? React__default.cloneElement(element, {
+      return match ? React.cloneElement(element, {
         location: location,
         computedMatch: match
       }) : null;
@@ -3507,7 +3500,7 @@ function (_React$Component) {
   };
 
   return Switch;
-}(React__default.Component);
+}(React.Component);
 
 if (process.env.NODE_ENV !== "production") {
   Switch.propTypes = {
@@ -3521,7 +3514,7 @@ if (process.env.NODE_ENV !== "production") {
   };
 }
 
-var useContext = React__default.useContext;
+var useContext = React.useContext;
 
 if (process.env.NODE_ENV !== "production") {
   if (typeof window !== "undefined") {
@@ -3569,14 +3562,14 @@ function (_React$Component) {
   var _proto = BrowserRouter.prototype;
 
   _proto.render = function render() {
-    return React__default.createElement(Router, {
+    return React.createElement(Router, {
       history: this.history,
       children: this.props.children
     });
   };
 
   return BrowserRouter;
-}(React__default.Component);
+}(React.Component);
 
 if (process.env.NODE_ENV !== "production") {
   BrowserRouter.propTypes = {
@@ -3616,14 +3609,14 @@ function (_React$Component) {
   var _proto = HashRouter.prototype;
 
   _proto.render = function render() {
-    return React__default.createElement(Router, {
+    return React.createElement(Router, {
       history: this.history,
       children: this.props.children
     });
   };
 
   return HashRouter;
-}(React__default.Component);
+}(React.Component);
 
 if (process.env.NODE_ENV !== "production") {
   HashRouter.propTypes = {
@@ -3649,7 +3642,7 @@ var forwardRefShim = function forwardRefShim(C) {
   return C;
 };
 
-var forwardRef = React__default.forwardRef;
+var forwardRef = React.forwardRef;
 
 if (typeof forwardRef === "undefined") {
   forwardRef = forwardRefShim;
@@ -3696,7 +3689,7 @@ var LinkAnchor = forwardRef(function (_ref, forwardedRef) {
   /* eslint-disable-next-line jsx-a11y/anchor-has-content */
 
 
-  return React__default.createElement("a", props);
+  return React.createElement("a", props);
 });
 
 if (process.env.NODE_ENV !== "production") {
@@ -3715,7 +3708,7 @@ var Link = forwardRef(function (_ref2, forwardedRef) {
       innerRef = _ref2.innerRef,
       rest = _objectWithoutPropertiesLoose(_ref2, ["component", "replace", "to", "innerRef"]);
 
-  return React__default.createElement(context.Consumer, null, function (context) {
+  return React.createElement(context.Consumer, null, function (context) {
     !context ? process.env.NODE_ENV !== "production" ? invariant(false, "You should not use <Link> outside a <Router>") : invariant(false) : void 0;
     var history = context.history;
     var location = normalizeToLocation(resolveToLocation(to, context.location), context.location);
@@ -3737,7 +3730,7 @@ var Link = forwardRef(function (_ref2, forwardedRef) {
       props.innerRef = innerRef;
     }
 
-    return React__default.createElement(component, props);
+    return React.createElement(component, props);
   });
 });
 
@@ -3760,7 +3753,7 @@ var forwardRefShim$1 = function forwardRefShim(C) {
   return C;
 };
 
-var forwardRef$1 = React__default.forwardRef;
+var forwardRef$1 = React.forwardRef;
 
 if (typeof forwardRef$1 === "undefined") {
   forwardRef$1 = forwardRefShim$1;
@@ -3797,7 +3790,7 @@ var NavLink = forwardRef$1(function (_ref, forwardedRef) {
       innerRef = _ref.innerRef,
       rest = _objectWithoutPropertiesLoose(_ref, ["aria-current", "activeClassName", "activeStyle", "className", "exact", "isActive", "location", "sensitive", "strict", "style", "to", "innerRef"]);
 
-  return React__default.createElement(context.Consumer, null, function (context) {
+  return React.createElement(context.Consumer, null, function (context) {
     !context ? process.env.NODE_ENV !== "production" ? invariant(false, "You should not use <NavLink> outside a <Router>") : invariant(false) : void 0;
     var currentLocation = locationProp || context.location;
     var toLocation = normalizeToLocation(resolveToLocation(to, currentLocation), currentLocation);
@@ -3828,7 +3821,7 @@ var NavLink = forwardRef$1(function (_ref, forwardedRef) {
       props.innerRef = innerRef;
     }
 
-    return React__default.createElement(Link, props);
+    return React.createElement(Link, props);
   });
 });
 
@@ -3849,7 +3842,7 @@ if (process.env.NODE_ENV !== "production") {
   });
 }
 
-var GenericComponent = styled.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", " \n  ", "\n"], ["\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", " \n  ", "\n"])), styledSystem.space, styledSystem.color, styledSystem.typography, styledSystem.layout, styledSystem.flexbox, styledSystem.grid, styledSystem.background, styledSystem.border, styledSystem.position, styledSystem.shadow);
+var GenericComponent = styled.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", " \n  ", "\n"], ["\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", "\n  ", " \n  ", "\n"])), space$1, color, typography, layout, flexbox, grid, background, border, position, shadow);
 var templateObject_1;
 
 var space = {
@@ -4025,11 +4018,11 @@ var typographyStyles = {
 
 var Link$1 = function (_a) {
     var to = _a.to, onClick = _a.onClick, children = _a.children, props = __rest(_a, ["to", "onClick", "children"]);
-    return (React__default.createElement(Link, { to: to, onClick: onClick },
-        React__default.createElement(GenericComponent, __assign({}, typographyStyles.Link, props), children)));
+    return (React.createElement(Link, { to: to, onClick: onClick },
+        React.createElement(GenericComponent, __assign({}, typographyStyles.Link, props), children)));
 };
 var createComponent = function (textStyle, displayName) {
-    var component = function (props) { return (React__default.createElement(GenericComponent, __assign({}, textStyle, props), props.children)); };
+    var component = function (props) { return (React.createElement(GenericComponent, __assign({}, textStyle, props), props.children)); };
     component.displayName = displayName;
     return component;
 };
@@ -4049,11 +4042,10 @@ var Typography = {
 var HeaderWrapper = styled(GenericComponent)(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  clip-path: ", ";\n  background-size: cover;\n  background-position: top;\n  position: relative;\n  background-image: ", ";\n"], ["\n  clip-path: ", ";\n  background-size: cover;\n  background-position: top;\n  position: relative;\n  background-image: ", ";\n"])), function (props) { return props.clipPath; }, function (props) { return props.backgroundImage; });
 var HeaderText = styled.div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  position: absolute;\n  top: 40%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  text-align: center;\n"], ["\n  position: absolute;\n  top: 40%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  text-align: center;\n"])));
 var Header = function (props) {
-    return (React__default.createElement(HeaderWrapper, { backgroundImage: props.backgroundImage, clipPath: props.clipPath, height: props.height },
-        React__default.createElement(HeaderText, null, props.children)));
+    return (React.createElement(HeaderWrapper, { backgroundImage: props.backgroundImage, clipPath: props.clipPath, height: props.height },
+        React.createElement(HeaderText, null, props.children)));
 };
 var templateObject_1$1, templateObject_2;
 
-exports.Header = Header;
-exports.Typography = Typography;
-//# sourceMappingURL=index.js.map
+export { Header, Typography };
+//# sourceMappingURL=index.es.js.map
