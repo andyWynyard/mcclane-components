@@ -1,4 +1,3 @@
-import * as CSS from 'csstype'
 import { Theme } from 'styled-system'
 
 export interface Space {
@@ -12,28 +11,28 @@ export interface Space {
 }
 
 export interface ThemeColors {
-  primary: CSS.ColorProperty
-  primaryLight: CSS.ColorProperty
-  primaryDark: CSS.ColorProperty
-  secondaryLight: CSS.ColorProperty
-  secondaryDark: CSS.ColorProperty
-  tertiaryLight: CSS.ColorProperty
-  tertiaryDark: CSS.ColorProperty
-  greyLight1: CSS.ColorProperty
-  greyLight2: CSS.ColorProperty
-  greyDark: CSS.ColorProperty
-  greyDark2: CSS.ColorProperty
-  greyDark3: CSS.ColorProperty
-  white: CSS.ColorProperty
-  black: CSS.ColorProperty
-  link: CSS.ColorProperty
-  success: CSS.ColorProperty
-  warning: CSS.ColorProperty
-  error: CSS.ColorProperty
-  heading: CSS.ColorProperty
-  text: CSS.ColorProperty
-  disabled: CSS.ColorProperty
-  border: CSS.ColorProperty
+  primary: string
+  primaryLight: string
+  primaryDark: string
+  secondaryLight: string
+  secondaryDark: string
+  tertiaryLight: string
+  tertiaryDark: string
+  greyLight1: string
+  greyLight2: string
+  greyDark: string
+  greyDark2: string
+  greyDark3: string
+  white: string
+  black: string
+  link: string
+  success: string
+  warning: string
+  error: string
+  heading: string
+  text: string
+  disabled: string
+  border: string
 }
 
 export const space: Space = {
@@ -54,31 +53,31 @@ breakpoints.lg = breakpoints[2]
 breakpoints.xl = breakpoints[3]
 breakpoints.xxl = breakpoints[4]
 
-export const fontSizes: number[] = [
-  12,
-  14,
-  15,
-  16,
-  17,
-  18,
-  19,
-  20,
-  21,
-  22,
-  24,
-  27,
-  28,
-  30,
-  32,
-  37,
-  39,
-  41,
-  43,
-  50,
-  51,
-  52,
-  57,
-]
+// export const fontSizes: number[] = [
+//   12,
+//   14,
+//   15,
+//   16,
+//   17,
+//   18,
+//   19,
+//   20,
+//   21,
+//   22,
+//   24,
+//   27,
+//   28,
+//   30,
+//   32,
+//   37,
+//   39,
+//   41,
+//   43,
+//   50,
+//   51,
+//   52,
+//   57,
+// ]
 
 export const colors: ThemeColors = {
   primary: '#55c57a',
@@ -109,7 +108,7 @@ export const defaultTheme: Theme = {
   space: {
     ...space,
   },
-  fontSizes,
+  // fontSizes,
   breakpoints,
   colors: {
     ...colors,
